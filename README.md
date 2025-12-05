@@ -54,5 +54,6 @@
 
 
 ## История изменения проекта
-- **New functions added: circle, rectangle, triangle, square** - 3efa157619cbcd286850a3f6a9bd2f83148d7663
-- **Inittests added** - af30af098f4f2289642f8417863936b8de33164a
+- 3efa157619cbcd286850a3f6a9bd2f83148d7663 - **New functions added: circle, rectangle, triangle, square**
+- af30af098f4f2289642f8417863936b8de33164a - **Inittests added**
+- 604da6bdc31cc67ecd2b5aaccfbd53e4b4a944d5 - **README correction**

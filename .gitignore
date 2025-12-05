@@ -1,0 +1,9 @@
+# tests
+
+test_square.py
+test_triangle.py
+test_rectangle.py
+test_circle.py
+
+# else
+__pycache__

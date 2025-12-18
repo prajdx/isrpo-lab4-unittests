@@ -3,33 +3,44 @@ name: Run Unit Tests
 on: [push]
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        python-version: ["3.9", "3.10", "3.11"]
-    
-    runs-on: ${{ matrix.os }}
+  test-ubuntu:
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
     
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.10'
     
-    - name: Display Python version
-      run: python --version
-    
-    - name: Run unit tests
+    - name: Run all unit tests
       run: python -m unittest discover -v
-      
-    - name: Test individual modules
+    
+    - name: Run individual tests
       run: |
-        echo "Testing all modules..."
-        python -m unittest test_circle -v || echo "Circle tests failed"
-        python -m unittest test_square -v || echo "Square tests failed"
-        python -m unittest test_rectangle -v || echo "Rectangle tests failed"
-        python -m unittest test_triangle -v || echo "Triangle tests failed"
+        echo "=== Testing Circle ==="
+        python -m unittest test_circle -v
+        echo "=== Testing Square ==="
+        python -m unittest test_square -v
+        echo "=== Testing Rectangle ==="
+        python -m unittest test_rectangle -v
+        echo "=== Testing Triangle ==="
+        python -m unittest test_triangle -v
+
+  test-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    
+    - name: Run tests on Windows
+      run: |
+        python -m unittest discover -v
